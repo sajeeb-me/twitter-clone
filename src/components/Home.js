@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
-// import { Button } from '@mui/material';
+import "./login.css";
 
 const Home = () => {
   const { logOut, user } = useUserAuth();
@@ -17,15 +17,15 @@ const Home = () => {
   };
   return (
     <>
-      <div className="p-4 box mt-3 text-center">
+    
+      <div className="homepage">
         Hello Welcome <br />
         {user && user.email}
       </div>
-      <div className="d-grid gap-2">
-        <Button variant="primary" onClick={handleLogout}>
-          Log out
-        </Button>
-      </div>
+      
+      <button className="home-btn" > Log Out</button>
+    
+   
     </>
   );
 };

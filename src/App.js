@@ -1,6 +1,6 @@
 
 
-import { Container, Row, Col } from "react-bootstrap";
+// import { Container, Row, Col } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
@@ -12,9 +12,7 @@ import { UserAuthContextProvider } from "./context/UserAuthContext";
 
 function App() {
   return (
-    <Container style={{ width: "400px" }}>
-      <Row>
-        <Col>
+    
           <UserAuthContextProvider>
           
          <Routes>
@@ -30,9 +28,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
             </Routes>
           </UserAuthContextProvider>
-        </Col>
-      </Row>
-    </Container>
+        
   );
 }
 
