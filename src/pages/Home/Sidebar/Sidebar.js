@@ -13,7 +13,7 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 
-function Sidebar() {
+function Sidebar({ handleLogout, user }) {
   return (
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
@@ -27,8 +27,15 @@ function Sidebar() {
       <SidebarOptions Icon={PermIdentityIcon} text="Profile" />
       <SidebarOptions Icon={MoreHorizIcon} text="More" />
 
-      
-      
+      {/* this element's are from Sravani */}
+      <div>
+        <div>
+          {user && user.email}
+        </div>
+
+        <button className="home-btn" onClick={handleLogout}>Log Out</button>
+      </div>
+
     </div>
   );
 }
