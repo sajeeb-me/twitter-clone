@@ -1,4 +1,5 @@
 import React from "react";
+
 import Home from "./pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
@@ -11,6 +12,7 @@ function App() {
   return (
 
     <div className="app">
+
       <UserAuthContextProvider>
         <Routes>
           <Route

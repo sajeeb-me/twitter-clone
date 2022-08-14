@@ -2,7 +2,10 @@ import React from "react";
 // import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../../context/UserAuthContext";
+import Feed from "./Feed/Feed";
 import Sidebar from "./Sidebar/Sidebar";
+import Widgets from "./Widgets/Widgets";
+
 
 const Home = () => {
     const { logOut, user } = useUserAuth();
@@ -16,9 +19,10 @@ const Home = () => {
         }
     };
     return (
-        <div>
+        <div className="app">
             <Sidebar handleLogout={handleLogout} user={user} />
-
+            <Feed />
+            <Widgets />
         </div>
     );
 };
