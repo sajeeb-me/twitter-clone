@@ -1,4 +1,5 @@
 import React from "react";
+//import {Link} from 'react-router-dom'
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
 
@@ -11,9 +12,17 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Button from "@mui/material/Button";
+import { Avatar } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 
 
-function Sidebar({ handleLogout, user }) {
+// const Sidebar = () => {
+//   const [showLogOut, setShowLogOut] = useState(false);
+// }
+
+function Sidebar({handleLogout, user }) {
   return (
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
@@ -26,15 +35,19 @@ function Sidebar({ handleLogout, user }) {
       <SidebarOptions Icon={ListAltIcon} text="Lists" />
       <SidebarOptions Icon={PermIdentityIcon} text="Profile" />
       <SidebarOptions Icon={MoreHorizIcon} text="More" />
-
-      {/* this element's are from Sravani */}
-      <div>
-        <div>
-          {user && user.email}
-        </div>
-
-        <button className="home-btn" onClick={handleLogout}>Log Out</button>
+      <Button variant="outlined" className="sidebar__tweet" fullWidth>
+        Tweet
+      </Button>
+      <div className="Profile__info">
+        <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
+        {user && user.displayName}
+        <IconButton onClick={handleLogout}>
+          <LogoutIcon />
+        </IconButton>
       </div>
+      {/* <div>
+        <button className="home-btn" onClick={handleLogout}>Log Out</button>
+      </div> */}
 
     </div>
   );
