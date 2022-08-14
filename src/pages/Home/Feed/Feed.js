@@ -1,7 +1,7 @@
 import React from "react";
+import Post from "../Post/Post";
+import TweetBox from "../TweetBox/TweetBox";
 import "./Feed.css";
-import TweetBox from "../../src/TweetBox/TweetBox.js";
-import Post from "../../src/Post/Post.js"
 
 function Feed() {
     return (

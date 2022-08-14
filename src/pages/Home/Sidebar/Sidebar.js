@@ -12,12 +12,17 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { Avatar } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 
 
+// const Sidebar = () => {
+//   const [showLogOut, setShowLogOut] = useState(false);
+// }
 
-function Sidebar() {
+function Sidebar({handleLogout, user }) {
   return (
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
@@ -33,16 +38,17 @@ function Sidebar() {
       <Button variant="outlined" className="sidebar__tweet" fullWidth>
         Tweet
       </Button>
-      {/* <div className="user">
-      <Avatar className="avatar" borderRadius = "50%">E</Avatar>
-      <div className="username">Ekta Gupta <SidebarOptions Icon={MoreHorizIcon}/></div> */}
-      <div className="tweetBox__input">
-                <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
-                {/* <input placeholder="What's happening?" type = "text"/> */}
-                <h3>Shinchan</h3>
-                <SidebarOptions Icon={MoreHorizIcon} />
+      <div className="Profile__info">
+        <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
+        {user && user.displayName}
+        <IconButton onClick={handleLogout}>
+          <LogoutIcon />
+        </IconButton>
       </div>
-   
+      {/* <div>
+        <button className="home-btn" onClick={handleLogout}>Log Out</button>
+      </div> */}
+
     </div>
   );
 }
