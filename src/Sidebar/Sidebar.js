@@ -1,4 +1,5 @@
 import React from "react";
+//import {Link} from 'react-router-dom'
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
 
@@ -11,6 +12,9 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Button from "@mui/material/Button";
+import { Avatar } from '@mui/material';
+
 
 
 function Sidebar() {
@@ -26,9 +30,19 @@ function Sidebar() {
       <SidebarOptions Icon={ListAltIcon} text="Lists" />
       <SidebarOptions Icon={PermIdentityIcon} text="Profile" />
       <SidebarOptions Icon={MoreHorizIcon} text="More" />
-
-      
-      
+      <Button variant="outlined" className="sidebar__tweet" fullWidth>
+        Tweet
+      </Button>
+      {/* <div className="user">
+      <Avatar className="avatar" borderRadius = "50%">E</Avatar>
+      <div className="username">Ekta Gupta <SidebarOptions Icon={MoreHorizIcon}/></div> */}
+      <div className="tweetBox__input">
+                <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
+                {/* <input placeholder="What's happening?" type = "text"/> */}
+                <h3>Shinchan</h3>
+                <SidebarOptions Icon={MoreHorizIcon} />
+      </div>
+   
     </div>
   );
 }
