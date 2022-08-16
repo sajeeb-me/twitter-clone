@@ -1,6 +1,7 @@
 .sidebarOptions {
   display: flex;
   align-items: center;
+  padding-bottom: 10px;
   cursor: pointer;
 }
 
@@ -12,12 +13,12 @@
 }
 
 .sidebarOptions > .MuiSvgIcon-root {
-  padding: 20px;
+  padding: 10px;
 }
 
 .sidebarOptions > h2 {
-  font-weight: 800;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 15px;
   margin-right: 20px;
 }
 
