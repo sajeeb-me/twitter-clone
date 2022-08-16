@@ -3,24 +3,37 @@ import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 import twitterimg from "../../image/twitter.jpeg";
 import TwitterIcon from '@mui/icons-material/Twitter';
+import GoogleButton from "react-google-button";
 import "./Login.css"
 
 
 const Signup = () => {
+    const[name,setName]=useState("");
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [password, setPassword] = useState("");
     const { signUp } = useUserAuth();
+    const {  googleSignIn } = useUserAuth();
     let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            await signUp(email, password);
+            await signUp(name,email, password);
             navigate("/");
         } catch (err) {
             setError(err.message);
+        }
+    };
+
+    const handleGoogleSignIn = async (e) => {
+        e.preventDefault();
+        try {
+            await googleSignIn();
+            navigate("/");
+        } catch (error) {
+            console.log(error.message);
         }
     };
 
@@ -47,6 +60,12 @@ const Signup = () => {
 
                         {error && <p>{error.message}</p>}
                         <form onSubmit={handleSubmit}>
+                         
+                        <input className="display-name" style={{backgroudColor:"red"}}
+                                type="name"
+                                placeholder="Enter Full "
+                                onChange={(e) => setName(e.target.value)}
+                            />
 
                             <input className="email"
                                 type="email"
@@ -61,19 +80,28 @@ const Signup = () => {
                                 placeholder="Password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-
+                            
 
                             <div className="btn-login">
                                 <button type="submit" className="btn">Sign Up</button>
                             </div>
                         </form>
+                        <hr/>
+                        <div className="google-button">
+                            <GoogleButton
+
+                                className="g-btn"
+                                type="light"
+
+                                onClick={handleGoogleSignIn}
+                            />
                     </div>
                     <div className="p-4 box mt-3 text-center">
                         Already have an account? <Link to="/">Log In</Link>
                     </div>
                 </div>
             </div>
-
+        </div>
 
         </>
     );
