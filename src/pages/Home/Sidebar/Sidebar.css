@@ -1,6 +1,7 @@
 .sidebar {
   border-right: 1px solid var(--twitter-background);
   flex: 0.3;
+  /* position: fixed; */
   min-width: 150px; 
   margin-top: 20px;
   padding-left: 20px;
@@ -26,8 +27,13 @@
 }
 
 .sidebar > .Profile__info{
-  /* padding: 20px; */
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.user__info{
+  display: flex;
+  flex-direction: column;
 }

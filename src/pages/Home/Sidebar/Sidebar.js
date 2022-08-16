@@ -1,5 +1,5 @@
 import React from "react";
-//import {Link} from 'react-router-dom'
+
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
 
@@ -11,19 +11,19 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+//import MoreIcon from "@mui/icons-material/More"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import LogoutIcon from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { Avatar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
 
-// const Sidebar = () => {
-//   const [showLogOut, setShowLogOut] = useState(false);
-// }
+
 
 function Sidebar({handleLogout, user }) {
+  const result = user.email.split('@')[0];
   return (
+    
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
 
@@ -40,14 +40,14 @@ function Sidebar({handleLogout, user }) {
       </Button>
       <div className="Profile__info">
         <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
-        {user && user.displayName}
-        <IconButton onClick={handleLogout}>
-          <LogoutIcon />
-        </IconButton>
+        <div className="user__info"> 
+          <h4>{user && user.displayName}</h4>
+          <h5>@{result}</h5>
+        </div>
+        <IconButton><MoreHorizIcon /></IconButton>
+        
       </div>
-      {/* <div>
-        <button className="home-btn" onClick={handleLogout}>Log Out</button>
-      </div> */}
+      
 
     </div>
   );
