@@ -5,6 +5,7 @@ import twitterimg from "../../image/twitter.jpeg";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleButton from "react-google-button";
 import "./Login.css"
+import axios from 'axios'
 
 
 const Signup = () => {
@@ -16,15 +17,25 @@ const Signup = () => {
     const {  googleSignIn } = useUserAuth();
     let navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit =  (e) => {
         e.preventDefault();
-        setError("");
+     /*   setError("");
         try {
             await signUp(name,email, password);
+
+           console.log(name,email,password); 
             navigate("/");
         } catch (err) {
             setError(err.message);
+        }*/
+        let obj={
+             name:name,
+            email:email,
+            password:password,
         }
+      
+        axios.post("http://localhost:5000/logedInUser",obj)
+        navigate("/");
     };
 
     const handleGoogleSignIn = async (e) => {
