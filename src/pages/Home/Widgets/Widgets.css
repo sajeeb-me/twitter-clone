@@ -1,5 +1,12 @@
 .widgets {
     flex: 0.3;
+    position: relative;
+    /* overflow-y: scroll; */
+    padding: 20px;
+    /* overflow-y: auto; */
+  }
+  .widgets::-webkit-scrollbar{
+    display: none;
   }
   
   .widgets__input {
@@ -14,6 +21,7 @@
   
   .widgets__input > input {
     border: none;
+    padding-top: 15px;
     background-color: var(--twitter-background);
   }
   
@@ -23,13 +31,17 @@
   
   .widgets__widgetContainer {
     margin-top: 15px;
+    /* margin-right: 20px; */
     margin-left: 20px;
+    /* margin: 20px; */
     padding: 20px;
     background-color: #f5f8fa;
     border-radius: 20px;
+    align-items: center;
   }
   
   .widgets__widgetContainer > h2 {
     font-size: 18px;
     font-weight: 800;
   }
+  
