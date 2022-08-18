@@ -12,8 +12,8 @@
     margin: 10px;
     /* margin-left: -50px; */
     align-content: center;
-   
- 
+
+
 
 }
 
@@ -26,7 +26,7 @@
 .Twitter-img {
     color: skyblue;
     max-width: 50%;
-    
+
 }
 
 .input-form {
@@ -50,7 +50,7 @@ h3 {
 .image-container {
     flex: 2;
     margin-left: -100px;
-    
+
 
 }
 
@@ -134,6 +134,12 @@ input {
 
 }
 
+.errorMessage {
+    color: red;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
 
 @media screen and (max-width:688px) {
     .login-container {
@@ -143,11 +149,12 @@ input {
         font-size: 20px;
 
     }
-    .form-container{
+
+    .form-container {
         padding: 10px;
     }
 
- 
+
     .image-container {
         width: 100%;
         vertical-align: text-bottom;
@@ -156,7 +163,7 @@ input {
         order: 1;
         max-width: 100%;
         width: 100%;
-       
+
 
     }
 
