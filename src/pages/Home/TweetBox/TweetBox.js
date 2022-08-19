@@ -13,7 +13,7 @@ function TweetBox() {
             username: 'elonmusk',
             name: "Elon Musk"
         }
-        fetch('http://localhost:5000/post', {
+        fetch('https://pacific-peak-30751.herokuapp.com/post', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
