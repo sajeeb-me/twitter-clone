@@ -21,6 +21,7 @@ const Login = () => {
             navigate("/");
         } catch (err) {
             setError(err.message);
+            window.alert(err.message);
         }
     };
 
@@ -85,8 +86,19 @@ const Login = () => {
 
                         </div>
                     </div>
-                    <div className="p-4 box mt-3 text-center">
-                        Don't have an account? <Link to="/signup">Sign up</Link>
+                    <div>
+                        Don't have an account?
+                        <Link
+                            to="/signup"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'var(--twitter-color)',
+                                fontWeight: '600',
+                                marginLeft: '5px'
+                            }}
+                        >
+                            Sign up
+                        </Link>
                     </div>
 
                 </div>

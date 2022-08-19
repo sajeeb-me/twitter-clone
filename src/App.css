@@ -11,3 +11,9 @@ body {
   margin-right: auto;
   padding: 0 10px;
 }
+
+@media screen and (max-width:688px) {
+  .app {
+    display: block;
+  }
+}
