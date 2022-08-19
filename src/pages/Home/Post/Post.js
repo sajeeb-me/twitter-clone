@@ -9,31 +9,31 @@ import PublishIcon from "@mui/icons-material/Publish";
 
 
 function Post({ p }) {
-  // const { name, username, post } = p;
+  const { name, username, photo, post } = p;
   return (
     <div className="post">
       <div className="post__avatar">
-        <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
+        <Avatar src="https://pbs.twimg.com/profile_images/1529956155937759233/Nyn1HZWF_400x400.jpg" />
       </div>
       <div className="post__body">
         <div className="post__header">
           <div className="post__headerText">
-            <h3>{p.name}{" "}
+            <h3>{name}{" "}
               <span className="post__headerSpecial">
-                <VerifiedUserIcon className="post__badge" /> @{p.username}
+                <VerifiedUserIcon className="post__badge" /> @{username}
               </span>
             </h3>
           </div>
           <div className="post__headerDescription">
-            <p>{p.post}</p>
+            <p>{post}</p>
           </div>
         </div>
-        <img src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" alt="" />
+        <img src={photo} alt="" />
         <div className="post__footer">
-          <ChatBubbleOutlineIcon fontSize="small" />
-          <RepeatIcon fontSize="small" />
-          <FavoriteBorderIcon fontSize="small" />
-          <PublishIcon fontSize="small" />
+          <ChatBubbleOutlineIcon className="post__footer__icon" fontSize="small" />
+          <RepeatIcon className="post__footer__icon" fontSize="small" />
+          <FavoriteBorderIcon className="post__footer__icon" fontSize="small" />
+          <PublishIcon className="post__footer__icon" fontSize="small" />
         </div>
       </div>
     </div>

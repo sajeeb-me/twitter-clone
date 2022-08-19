@@ -3,7 +3,6 @@
   align-items: flex-start;
   border-bottom: 1px solid var(--twitter-background);
   padding-bottom: 10px;
-  /* overflow-x: scroll; */
 }
 
 .post__body {
@@ -18,7 +17,13 @@
 .post__footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+.post__footer__icon:hover {
+  cursor: pointer;
+  color: var(--twitter-color);
 }
 
 .post__headerDescription {

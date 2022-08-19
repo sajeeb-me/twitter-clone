@@ -55,7 +55,7 @@ function Sidebar({ handleLogout, user }) {
         Tweet
       </Button>
       <div className="Profile__info">
-        <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
+        <Avatar src="https://pbs.twimg.com/profile_images/1529956155937759233/Nyn1HZWF_400x400.jpg" />
         <div className="user__info">
           <h4>{user && user.displayName}</h4>
           <h5>@{result}</h5>
@@ -67,7 +67,7 @@ function Sidebar({ handleLogout, user }) {
           onClick={handleClick}><MoreHorizIcon /></IconButton>
         <Menu id="basic-menu" anchorEl={anchorEl} open={openMenu} onClick={handleClose} onClose={handleClose}>
           <MenuItem className="Profile__info1">
-            <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
+            <Avatar src="https://pbs.twimg.com/profile_images/1529956155937759233/Nyn1HZWF_400x400.jpg" />
             <div className="user__info subUser__info">
               <div>
                 <h4>{user && user.displayName}</h4>

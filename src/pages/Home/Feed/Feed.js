@@ -24,11 +24,6 @@ function Feed() {
             {
                 posts.map(p => <Post key={p._id} p={p} />)
             }
-            {/* <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post /> */}
         </div>
 
     )
