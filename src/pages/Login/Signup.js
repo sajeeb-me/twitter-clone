@@ -22,11 +22,12 @@ const Signup = () => {
         try {
             await signUp(email, password);
             const user = {
-                name,
-                email
+                name: name,
+                email: email,
             }
+
             fetch('http://localhost:5000/register', {
-                method: 'POST',
+                method: "POST",
                 headers: {
                     'content-type': 'application/json'
                 },
@@ -35,14 +36,13 @@ const Signup = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.acknowledged) {
-                        navigate('/');
-                    } else {
-                        console.log(data.message);
+                        console.log(data)
+                        navigate('/')
                     }
                 })
+
         } catch (err) {
             setError(err.message);
-            window.alert(err.message)
         }
     };
 
