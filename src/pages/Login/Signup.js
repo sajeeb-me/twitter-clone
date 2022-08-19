@@ -43,6 +43,7 @@ const Signup = () => {
 
         } catch (err) {
             setError(err.message);
+            window.alert(err.message);
         }
     };
 
