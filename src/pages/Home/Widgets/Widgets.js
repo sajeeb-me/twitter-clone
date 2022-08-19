@@ -17,15 +17,15 @@ function Widgets() {
       <div className="widgets__widgetContainer">
         <h2>What's happening</h2>
 
-        <TwitterTweetEmbed tweetId={"1557943469984956417"} />
+        <TwitterTweetEmbed tweetId={"1557187138352861186"} />
 
         <TwitterTimelineEmbed
           sourceType="profile"
-          screenName="Shinchan"
+          screenName="elonmusk"
           options={{ height: 400 }}
         />
 
-        
+
       </div>
     </div>
   );
