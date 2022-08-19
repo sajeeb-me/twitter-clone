@@ -116,8 +116,19 @@ const Signup = () => {
                                 onClick={handleGoogleSignIn}
                             />
                         </div>
-                        <div className="p-4 box mt-3 text-center">
-                            Already have an account? <Link to="/">Log In</Link>
+                        <div>
+                            Already have an account?
+                            <Link
+                                to="/login"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'var(--twitter-color)',
+                                    fontWeight: '600',
+                                    marginLeft: '5px'
+                                }}
+                            >
+                                Log In
+                            </Link>
                         </div>
                     </div>
                 </div>

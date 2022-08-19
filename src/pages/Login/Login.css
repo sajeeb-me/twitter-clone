@@ -140,6 +140,11 @@ input {
     margin: 10px 0;
 }
 
+.signUpText>Link {
+    text-decoration: none;
+    color: var(--twitter-color) !important;
+
+}
 
 @media screen and (max-width:688px) {
     .login-container {
