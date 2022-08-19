@@ -4,21 +4,19 @@
   position: inherit;
   min-width: 150px;
   margin-top: 20px;
-  padding-left: 20px;
   padding-right: 20px;
   overflow-y: scroll;
 }
 
-/* 
 .sidebar::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .sidebar__twitterIcon {
   color: var(--twitter-color);
-  font-size: 30px !important;
+  font-size: 35px !important;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .sidebar__tweet {
@@ -40,4 +38,23 @@
   margin-bottom: 10px;
   border-radius: 9999px;
   padding: 10px;
+}
+
+.user__info {
+  margin-left: 10px;
+}
+
+.subUser__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.user__info>h4 {
+  font-size: 16px;
+}
+
+.user__info>h5 {
+  opacity: 50%;
 }
