@@ -30,7 +30,7 @@ function TweetBox() {
     return <div className="tweetBox">
         <form>
             <div className="tweetBox__input">
-                <Avatar src="https://pbs.twimg.com/profile_images/1529956155937759233/Nyn1HZWF_400x400.jpg" />
+                <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
                 <input placeholder="What's happening?" type="text" onChange={(e) => setPost(e.target.value)} />
 
             </div>

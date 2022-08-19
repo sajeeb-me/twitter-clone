@@ -13,7 +13,7 @@ function Post({ p }) {
   return (
     <div className="post">
       <div className="post__avatar">
-        <Avatar src="https://pbs.twimg.com/profile_images/1529956155937759233/Nyn1HZWF_400x400.jpg" />
+        <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
       </div>
       <div className="post__body">
         <div className="post__header">
