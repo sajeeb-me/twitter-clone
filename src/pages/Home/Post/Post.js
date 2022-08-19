@@ -8,7 +8,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PublishIcon from "@mui/icons-material/Publish";
 
 
-function Post({post}){
+function Post({p}) {
+  const{name, username, post} = p;
     return (
         <div className="post">
             <div className="post__avatar">
@@ -17,17 +18,17 @@ function Post({post}){
             <div className="post__body">
               <div className="post__header">
                 <div className="post__headerText">
-                    <h3>{post.userPosted}
+                    <h3>{name}{" "}
                       <span className="post__headerSpecial">
-                        <VerifiedUserIcon className="post__badge" /> @Shinchan
+                        <VerifiedUserIcon className="post__badge" /> @{username}
                       </span>
                     </h3>
                   </div>
                   <div className="post__headerDescription">
-                    <p>{post.post__headerDescription}</p>
+                    <p>{post}</p>
                   </div>
                 </div>
-                <img src={post.post__image} alt="" />
+                <img src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" alt="" />
                 <div className="post__footer">
                 <ChatBubbleOutlineIcon fontSize="small" />
                 <RepeatIcon fontSize="small" />

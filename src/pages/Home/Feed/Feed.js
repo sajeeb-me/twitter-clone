@@ -1,31 +1,36 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect , useState} from "react";
+import Post from "../Post/Post";
 import TweetBox from "../TweetBox/TweetBox";
 import "./Feed.css";
-import PostList from "./PostList";
 
 function Feed() {
-    const postList = useSelector(state => state.postReducer)
+    const [post, setPost] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/post')
+        .then(res => res.json())
+        .then(data => {
+            setPost(data);
+            console.log(data);
+        })
+    },[])
     return (
         <div className="feed">
         <div className="feed__header">
             <h2>Home</h2>
         </div>
         <TweetBox />
-        <div>
+        <>
             {
-                postList.data === null ?
-                <h1>Loading...</h1> :
-                <>
-                    <PostList postList = {postList.data} />
-                </>
+                post.map((p) => (
+                    <Post p = {p} key={p._id}/>
+                ))
             }
+        </>
         </div>
-        </div>
+
     )
+
 }
+
 export default Feed
-
-
-
-    
