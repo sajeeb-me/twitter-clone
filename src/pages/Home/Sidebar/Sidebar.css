@@ -58,3 +58,9 @@
 .user__info>h5 {
   opacity: 50%;
 }
+
+@media screen and (max-width:688px) {
+  .sidebar {
+    display: none;
+  }
+}

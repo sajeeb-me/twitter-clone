@@ -29,3 +29,9 @@
 .done__icon {
   color: var(--twitter-color) !important;
 }
+
+@media screen and (max-width:688px) {
+  .sidebar__tweet {
+    display: none;
+  }
+}
