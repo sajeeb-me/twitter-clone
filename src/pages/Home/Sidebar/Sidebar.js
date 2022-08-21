@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
@@ -25,8 +25,8 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 
-function Sidebar({handleLogout, user }) {
-  const[anchorEl, setAnchorEl] = useState(null);
+function Sidebar({ handleLogout, user }) {
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const openMenu = Boolean(anchorEl);
 
@@ -39,7 +39,7 @@ function Sidebar({handleLogout, user }) {
   };
   const result = user?.email?.split('@')[0];
   return (
-    
+
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
 
@@ -55,32 +55,34 @@ function Sidebar({handleLogout, user }) {
         Tweet
       </Button>
       <div className="Profile__info">
-        <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
-        <div className="user__info"> 
+        <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
+        <div className="user__info">
           <h4>{user && user.displayName}</h4>
           <h5>@{result}</h5>
         </div>
         <IconButton size="small"
-            sx={{ ml: 2 }} aria-controls={openMenu ? "basic-menu" : undefined } 
-            aria-haspopup="true" 
-            aria-expanded={openMenu ? "true" : undefined} 
-            onClick={handleClick}><MoreHorizIcon/></IconButton>
+          sx={{ ml: 2 }} aria-controls={openMenu ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={openMenu ? "true" : undefined}
+          onClick={handleClick}><MoreHorizIcon /></IconButton>
         <Menu id="basic-menu" anchorEl={anchorEl} open={openMenu} onClick={handleClose} onClose={handleClose}>
           <MenuItem className="Profile__info1">
-            <Avatar src="https://miro.medium.com/max/540/0*vUlSsz1sMQ38o5gd.jpg" />
-            <div className="user__info1"> 
-              <h5>{user && user.displayName}</h5>
-              <h6>@{result}</h6>
-              <ListItemIcon className="done__icon" color="blue"><DoneIcon/></ListItemIcon>
+            <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
+            <div className="user__info subUser__info">
+              <div>
+                <h4>{user && user.displayName}</h4>
+                <h5>@{result}</h5>
+              </div>
+              <ListItemIcon className="done__icon" color="blue"><DoneIcon /></ListItemIcon>
             </div>
           </MenuItem>
           <Divider />
           <MenuItem onClick={handleClose}>Add an existing account</MenuItem>
           <MenuItem onClick={handleLogout}>Log out @{result}</MenuItem>
         </Menu>
-        
+
       </div>
-      
+
 
     </div>
   );

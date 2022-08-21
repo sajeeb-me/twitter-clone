@@ -8,22 +8,42 @@ import "./Login.css"
 
 
 const Signup = () => {
-    const[name,setName]=useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [password, setPassword] = useState("");
     const { signUp } = useUserAuth();
-    const {  googleSignIn } = useUserAuth();
+    const { googleSignIn } = useUserAuth();
     let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            await signUp(name,email, password);
-            navigate("/");
+            await signUp(email, password);
+            const user = {
+                name: name,
+                email: email,
+            }
+
+            fetch('https://pacific-peak-30751.herokuapp.com/register', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.acknowledged) {
+                        console.log(data)
+                        navigate('/')
+                    }
+                })
+
         } catch (err) {
             setError(err.message);
+            window.alert(err.message);
         }
     };
 
@@ -34,6 +54,7 @@ const Signup = () => {
             navigate("/");
         } catch (error) {
             console.log(error.message);
+            console.log(error);
         }
     };
 
@@ -58,10 +79,10 @@ const Signup = () => {
                         </div>
 
 
-                        {error && <p>{error.message}</p>}
+                        {error && <p className="errorMessage">{error}</p>}
                         <form onSubmit={handleSubmit}>
-                         
-                        <input className="display-name" style={{backgroudColor:"red"}}
+
+                            <input className="display-name" style={{ backgroudColor: "red" }}
                                 type="name"
                                 placeholder="Enter Full "
                                 onChange={(e) => setName(e.target.value)}
@@ -80,13 +101,13 @@ const Signup = () => {
                                 placeholder="Password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            
+
 
                             <div className="btn-login">
                                 <button type="submit" className="btn">Sign Up</button>
                             </div>
                         </form>
-                        <hr/>
+                        <hr />
                         <div className="google-button">
                             <GoogleButton
 
@@ -95,13 +116,24 @@ const Signup = () => {
 
                                 onClick={handleGoogleSignIn}
                             />
-                    </div>
-                    <div className="p-4 box mt-3 text-center">
-                        Already have an account? <Link to="/">Log In</Link>
+                        </div>
+                        <div>
+                            Already have an account?
+                            <Link
+                                to="/login"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'var(--twitter-color)',
+                                    fontWeight: '600',
+                                    marginLeft: '5px'
+                                }}
+                            >
+                                Log In
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         </>
     );
