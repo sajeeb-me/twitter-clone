@@ -1,6 +1,7 @@
 .sidebarOptions {
   display: flex;
   align-items: center;
+  padding-bottom: 5px;
   cursor: pointer;
 }
 
@@ -11,16 +12,26 @@
   transition: color 100ms ease-out;
 }
 
-.sidebarOptions > .MuiSvgIcon-root {
-  padding: 20px;
+.sidebarOptions>.MuiSvgIcon-root {
+  padding: 10px 15px;
 }
 
-.sidebarOptions > h2 {
-  font-weight: 800;
-  font-size: 20px;
+.sidebarOptions>h2 {
+  font-weight: 600;
+  font-size: 18px;
   margin-right: 20px;
 }
 
 .sidebarOptions--active {
   color: var(--twitter-color);
+}
+
+.done__icon {
+  color: var(--twitter-color) !important;
+}
+
+@media screen and (max-width:688px) {
+  .sidebar__tweet {
+    display: none;
+  }
 }
