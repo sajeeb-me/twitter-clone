@@ -28,15 +28,28 @@
   padding: 5px 20px;
 }
 
+.imageIcon_tweetButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .tweetBox__tweetButton {
   background-color: var(--twitter-color) !important;
   border: none !important;
   color: white !important;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
   text-transform: inherit !important;
-  border-radius: 30px !important;
-  width: 80px;
+  border-radius: 50px !important;
+  width: 100px;
   height: 40px !important;
-  margin-top: 20px !important;
-  margin-left: auto !important;
+}
+
+.imageIcon {
+  color: var(--twitter-color);
+  padding-left: 25px;
+}
+
+.imageInput {
+  display: none;
 }
