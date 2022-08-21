@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TweetBox.css";
 import { Avatar, Button } from "@mui/material";
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import axios from "axios";
+import {useUserAuth} from "../../../context/UserAuthContext";
 
 function TweetBox() {
     const [post, setPost] = useState('')
     const [imageURL, setImageURL] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [name, setName] = useState(' ');
+    const [username, setUsername] = useState(' ');
+    const {user} = useUserAuth();
+    const email =  user?.email;
+
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+            setName(data[0]?.name)
+            setUsername(data[0]?.username)
+        })
+    },[email])
 
     const handleUploadImage = e => {
         setIsLoading(true);
@@ -31,8 +47,8 @@ function TweetBox() {
         const userPost = {
             post: post,
             photo: imageURL,
-            username: 'elonmusk',
-            name: "Elon Musk"
+            username: username,
+            name: name
         }
         console.log(userPost);
         fetch('https://pacific-peak-30751.herokuapp.com/post', {
