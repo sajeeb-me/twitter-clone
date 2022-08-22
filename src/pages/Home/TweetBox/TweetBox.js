@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./TweetBox.css";
 import { Avatar, Button } from "@mui/material";
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
@@ -14,14 +14,7 @@ function TweetBox() {
     const { user } = useUserAuth();
     const email = user?.email;
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/loggedInUser?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                setName(data[0]?.name)
-                setUsername(data[0]?.username)
-            })
-    }, [email])
+    // console.log(user?.providerData[0]?.providerId);
 
     const handleUploadImage = e => {
         setIsLoading(true);
@@ -41,33 +34,58 @@ function TweetBox() {
             })
     }
 
-    const handleTweet = () => {
-        const userPost = {
-            post: post,
-            photo: imageURL,
-            username: username,
-            name: name
-        }
-        // console.log(userPost);
-        fetch('https://pacific-peak-30751.herokuapp.com/post', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(userPost),
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
+    const handleTweet = (e) => {
+        e.preventDefault();
 
+        if (user?.providerData[0]?.providerId === 'password') {
+            fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+                .then(res => res.json())
+                .then(data => {
+                    setName(data[0]?.name)
+                    setUsername(data[0]?.username)
+                })
+        }
+        else {
+            setName(user?.displayName)
+            setUsername(email?.split('@')[0])
+        }
+
+        if (name) {
+            const userPost = {
+                post: post,
+                photo: imageURL,
+                username: username,
+                name: name
+            }
+            console.log(userPost);
+            setPost('')
+            setImageURL('')
+            fetch('https://pacific-peak-30751.herokuapp.com/post', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(userPost),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                })
+        }
     }
 
     return <div className="tweetBox">
-        <form>
+        <form onSubmit={handleTweet}>
             <div className="tweetBox__input">
                 <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
-                <input placeholder="What's happening?" type="text" onChange={(e) => setPost(e.target.value)} />
+                <input
+                    type="text"
+                    placeholder="What's happening?"
+                    onChange={(e) => setPost(e.target.value)}
+                    value={post}
+                    required
+                />
 
             </div>
             <div className="imageIcon_tweetButton">
@@ -81,9 +99,8 @@ function TweetBox() {
                     id='image'
                     className="imageInput"
                     onChange={handleUploadImage}
-                    required
                 />
-                <Button className="tweetBox__tweetButton" onClick={handleTweet}>Tweet</Button>
+                <Button className="tweetBox__tweetButton" type="submit">Tweet</Button>
             </div>
         </form>
 
