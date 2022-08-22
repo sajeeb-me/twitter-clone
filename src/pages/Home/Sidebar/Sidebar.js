@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
-
 import TwitterIcon from "@mui/icons-material/Twitter";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -42,7 +41,6 @@ function Sidebar({ handleLogout, user }) {
 
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
-
       <SidebarOptions active Icon={HomeIcon} text="Home" />
       <SidebarOptions Icon={SearchIcon} text="Explore" />
       <SidebarOptions Icon={NotificationsNoneIcon} text="Notifications" />
