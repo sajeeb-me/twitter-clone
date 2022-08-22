@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../pages/Home/Sidebar/Sidebar';
-import Widgets from '../pages/Home/Widgets/Widgets';
+import Widgets from '../pages/Home/Widgets/Widgets'
+
 
 const Notifications = () => {
   return (

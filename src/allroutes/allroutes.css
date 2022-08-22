@@ -14,6 +14,7 @@
     float: left;
     flex-direction:row;
     flex: 1;
+    
 } 
 .column2{
 
@@ -23,15 +24,9 @@
     
   }
    .sidebar{
-    position: inherit;
-   
-    border-right: 1px solid var(--twitter-background);
-    flex: 0.3;
+    overflow-y: scroll;
  
-    min-width: 150px;
-    margin-top: 20px;
-    padding-right: 20px;
-    
+ 
   } 
 
   

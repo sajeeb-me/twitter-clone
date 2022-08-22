@@ -1,5 +1,5 @@
 import React from 'react'
-import './app.css';
+import './allroutes.css';
 import Sidebar from '../pages/Home/Sidebar/Sidebar';
 
 import Widgets from '../pages/Home/Widgets/Widgets';
