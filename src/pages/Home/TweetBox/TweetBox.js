@@ -10,16 +10,16 @@ function TweetBox() {
     const [imageURL, setImageURL] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState('');
-
+    const [username, setUsername] = useState(' ');
     const { user } = useUserAuth();
-
     const email = user?.email;
 
     useEffect(() => {
         fetch(`http://localhost:5000/loggedInUser?email=${email}`)
             .then(res => res.json())
             .then(data => {
-                setName(data[0]?.name);
+                setName(data[0]?.name)
+                setUsername(data[0]?.username)
             })
     }, [email])
 
@@ -45,7 +45,7 @@ function TweetBox() {
         const userPost = {
             post: post,
             photo: imageURL,
-            username: 'elonmusk',
+            username: username,
             name: name
         }
         // console.log(userPost);
@@ -83,10 +83,6 @@ function TweetBox() {
                     onChange={handleUploadImage}
                     required
                 />
-                {/* <input className="tweetBox__imageInput"
-                placeholder="Enter Image URL"
-                onChange={(e) => setUrl(e.target.value)}
-                type="text" /> */}
                 <Button className="tweetBox__tweetButton" onClick={handleTweet}>Tweet</Button>
             </div>
         </form>
