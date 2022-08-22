@@ -64,3 +64,9 @@
     display: none;
   }
 }
+
+.router-pages
+{
+  color: var(--twitter-color);
+  text-decoration:none;
+}

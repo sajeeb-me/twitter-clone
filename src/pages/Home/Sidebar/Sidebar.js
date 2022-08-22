@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
+
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
+import { Link } from "react-router-dom";
 
 import TwitterIcon from "@mui/icons-material/Twitter";
 import HomeIcon from "@mui/icons-material/Home";
@@ -23,8 +25,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 
-
-
 function Sidebar({ handleLogout, user }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -32,25 +32,38 @@ function Sidebar({ handleLogout, user }) {
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
-    //console.log(e.currentTarget);
+  
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+ 
+
+
   const result = user?.email?.split('@')[0];
   return (
 
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
 
-      <SidebarOptions active Icon={HomeIcon} text="Home" />
-      <SidebarOptions Icon={SearchIcon} text="Explore" />
-      <SidebarOptions Icon={NotificationsNoneIcon} text="Notifications" />
-      <SidebarOptions Icon={MailOutlineIcon} text="Messages" />
-      <SidebarOptions Icon={BookmarkBorderIcon} text="Bookmarks" />
-      <SidebarOptions Icon={ListAltIcon} text="Lists" />
-      <SidebarOptions Icon={PermIdentityIcon} text="Profile" />
-      <SidebarOptions Icon={MoreIcon} text="More" />
+      <SidebarOptions active Icon={HomeIcon}   text="Home"  /> 
+       <Link to="/explore" className="router-pages"> 
+       <SidebarOptions Icon={SearchIcon}  color="pink" text="Explore" />
+       </Link>
+
+      <Link to="/notifications" className="router-pages"><SidebarOptions Icon={NotificationsNoneIcon} text="Notifications" /></Link>
+      <Link to="/messages" className="router-pages"><SidebarOptions Icon={MailOutlineIcon} text="Messages" /></Link>
+      <Link to="/bookmarks" className="router-pages"><SidebarOptions Icon={BookmarkBorderIcon} text="Bookmarks" /></Link>
+      <Link to="/lists" className="router-pages"><SidebarOptions Icon={ListAltIcon} text="Lists" /></Link>
+      <Link to="/profile" className="router-pages"><SidebarOptions Icon={PermIdentityIcon} text="Profile" /></Link>
+      <Link to="/more" className="router-pages"><SidebarOptions Icon={MoreIcon} text="More" /></Link>
+
+
+
+     
+      
+     
+  
       <Button variant="outlined" className="sidebar__tweet" fullWidth>
         Tweet
       </Button>
