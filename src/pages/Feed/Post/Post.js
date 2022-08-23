@@ -28,7 +28,7 @@ function Post({ p }) {
             <p>{post}</p>
           </div>
         </div>
-        <img src={photo} alt="" />
+        <img src={photo} alt="" width='580' />
         <div className="post__footer">
           <ChatBubbleOutlineIcon className="post__footer__icon" fontSize="small" />
           <RepeatIcon className="post__footer__icon" fontSize="small" />
