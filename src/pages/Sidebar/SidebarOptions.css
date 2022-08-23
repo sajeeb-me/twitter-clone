@@ -22,10 +22,6 @@
   margin-right: 20px;
 }
 
-.sidebarOptions--active {
-  color: var(--twitter-color);
-}
-
 .done__icon {
   color: var(--twitter-color) !important;
 }

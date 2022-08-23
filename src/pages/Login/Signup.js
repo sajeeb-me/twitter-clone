@@ -8,6 +8,7 @@ import "./Login.css"
 
 
 const Signup = () => {
+    const [username, setUsername] = useState(" ");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
@@ -22,6 +23,7 @@ const Signup = () => {
         try {
             await signUp(email, password);
             const user = {
+                username: username,
                 name: name,
                 email: email,
             }
@@ -83,8 +85,14 @@ const Signup = () => {
                         <form onSubmit={handleSubmit}>
 
                             <input className="display-name" style={{ backgroudColor: "red" }}
+                                type="username"
+                                placeholder="@username "
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+
+                            <input className="display-name" style={{ backgroudColor: "red" }}
                                 type="name"
-                                placeholder="Enter Full "
+                                placeholder="Enter Full Name"
                                 onChange={(e) => setName(e.target.value)}
                             />
 

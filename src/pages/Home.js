@@ -1,8 +1,7 @@
 import React from "react";
-// import { Button } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { useUserAuth } from "../../context/UserAuthContext";
-import Feed from "./Feed/Feed";
+import { useUserAuth } from "../context/UserAuthContext";
 import Sidebar from "./Sidebar/Sidebar";
 import Widgets from "./Widgets/Widgets";
 
@@ -21,7 +20,7 @@ const Home = () => {
     return (
         <div className="app">
             <Sidebar handleLogout={handleLogout} user={user} />
-            <Feed />
+            <Outlet />
             <Widgets />
         </div>
     );
