@@ -38,7 +38,7 @@ function TweetBox() {
         e.preventDefault();
 
         if (user?.providerData[0]?.providerId === 'password') {
-            fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+            fetch(`https://pacific-peak-30751.herokuapp.com/loggedInUser?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setName(data[0]?.name)
