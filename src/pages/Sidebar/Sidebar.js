@@ -24,7 +24,7 @@ import CustomeLink from "./CumtomeLink";
 
 
 
-function Sidebar({ handleLogout, user }) {
+function Sidebar({ handleLogout,user}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
 

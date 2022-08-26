@@ -55,7 +55,8 @@ function TweetBox() {
                 post: post,
                 photo: imageURL,
                 username: username,
-                name: name
+                name: name,
+                email:email,
             }
             console.log(userPost);
             setPost('')
