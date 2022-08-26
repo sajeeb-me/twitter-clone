@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './EditProfile.css';
 
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -20,6 +21,43 @@ const style = {
   boxShadow: 24,
   borderRadius: 8,
 };
+
+function EditChild() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <React.Fragment>
+        <div className='birthdate-section' onClick={handleOpen}>
+          <text>Edit</text> 
+        </div>
+      <Modal
+        hideBackdrop
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="child-modal-title"
+        aria-describedby="child-modal-description"
+      >
+        <Box sx={{ ...style , width: 300, height: 300}}>
+          <div className='text'>
+            <h2>Edit date of birth?</h2>
+                 <p>This can only be changed a few times.<br/>
+                 Make sure you enter the age of the <br/>
+                 person using the account. </p>
+            <Button className='e-button'>Edit</Button>
+            <Button className='e-button' onClick={() => {setOpen(false);}}>Cancel</Button>
+          </div>
+        </Box>
+      </Modal>
+    </React.Fragment>
+  );
+}
+
 
 export default function EditProfile() {
   const [open, setOpen] = React.useState(false)
@@ -54,10 +92,11 @@ export default function EditProfile() {
           <div className='birthdate-section'>
             <p>Birth Date</p>
             <p>.</p>
-            <text>Edit</text>
+            <EditChild/>
           </div>
           <div className='last-section'>
             <h2>Add your date of birth</h2>
+            
             <div className='last-btn'>
               <h2>Switch to professional </h2>
               <ChevronRightIcon/>
