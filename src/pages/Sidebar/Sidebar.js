@@ -70,7 +70,7 @@ function Sidebar({ handleLogout, user }) {
       <div className="Profile__info">
         <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
         <div className="user__info">
-          <h4>{user && user.displayName}</h4>
+          <h4>{user && user.name}</h4>
           <h5>@{result}</h5>
         </div>
         <IconButton size="small"
