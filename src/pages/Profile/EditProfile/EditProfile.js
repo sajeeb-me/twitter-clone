@@ -16,7 +16,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  height:600,
+  height: 600,
   bgcolor: 'background.paper',
   boxShadow: 24,
   borderRadius: 8,
@@ -33,9 +33,9 @@ function EditChild() {
 
   return (
     <React.Fragment>
-        <div className='birthdate-section' onClick={handleOpen}>
-          <text>Edit</text> 
-        </div>
+      <div className='birthdate-section' onClick={handleOpen}>
+        <text>Edit</text>
+      </div>
       <Modal
         hideBackdrop
         open={open}
@@ -43,14 +43,14 @@ function EditChild() {
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style , width: 300, height: 300}}>
+        <Box sx={{ ...style, width: 300, height: 300 }}>
           <div className='text'>
             <h2>Edit date of birth?</h2>
-                 <p>This can only be changed a few times.<br/>
-                 Make sure you enter the age of the <br/>
-                 person using the account. </p>
+            <p>This can only be changed a few times.<br />
+              Make sure you enter the age of the <br />
+              person using the account. </p>
             <Button className='e-button'>Edit</Button>
-            <Button className='e-button' onClick={() => {setOpen(false);}}>Cancel</Button>
+            <Button className='e-button' onClick={() => { setOpen(false); }}>Cancel</Button>
           </div>
         </Box>
       </Modal>
@@ -63,17 +63,17 @@ export default function EditProfile() {
   const [open, setOpen] = React.useState(false)
   return (
     <div >
-      <Button onClick={() => {setOpen(true);}}>Edit Profile</Button>
+      <Button onClick={() => { setOpen(true); }}>Edit Profile</Button>
 
-      <Modal 
+      <Modal
         open={open}
-        
+
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} className="modal">
           <div className='header'>
-            <IconButton onClick={() => {setOpen(false);}} ><CloseIcon/></IconButton>
+            <IconButton onClick={() => { setOpen(false); }} ><CloseIcon /></IconButton>
             <h2 className='header-title'> Edit Profile</h2>
             <button className='save-btn'>Save</button>
           </div>
@@ -84,22 +84,22 @@ export default function EditProfile() {
             </div>
           </div>
           <form className='fill-content'>
-            <TextField className='text-field' fullWidth label="Name" id="fullWidth" variant='filled'/>
-            <TextField className='text-field' fullWidth label="Bio" id="fullWidth" variant='filled'/>
-            <TextField className='text-field' fullWidth label="Location" id="fullWidth" variant='filled'/>
-            <TextField className='text-field' fullWidth label="Website" id="fullWidth" variant='filled'/>
+            <TextField className='text-field' fullWidth label="Name" id="fullWidth" variant='filled' />
+            <TextField className='text-field' fullWidth label="Bio" id="fullWidth" variant='filled' />
+            <TextField className='text-field' fullWidth label="Location" id="fullWidth" variant='filled' />
+            <TextField className='text-field' fullWidth label="Website" id="fullWidth" variant='filled' />
           </form>
           <div className='birthdate-section'>
             <p>Birth Date</p>
             <p>.</p>
-            <EditChild/>
+            <EditChild />
           </div>
           <div className='last-section'>
             <h2>Add your date of birth</h2>
-            
+
             <div className='last-btn'>
               <h2>Switch to professional </h2>
-              <ChevronRightIcon/>
+              <ChevronRightIcon />
             </div>
           </div>
         </Box>
