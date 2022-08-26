@@ -1,0 +1,55 @@
+  .mainprofile
+  {
+    background-color:rgb(12, 61, 61);
+    min-height: 150%;
+    width: 100%;
+    margin-top: 0;
+    border: 1 px solid white;
+
+
+  }
+.head
+{
+  height:60%;
+  
+}
+.profile-bio
+{
+ 
+    height: 130px;
+}
+
+
+.avatar-img{
+  margin-top: 45px;
+}
+.Edit-profile-btn{
+  
+transform: translateY(-50%);
+cursor: pointer;
+margin-left:80%;
+margin-top:2px;
+background-color: white; 
+padding:7px;
+width:15%;
+border: 1px solid;
+justify-content: center;
+border-radius:2rem;
+
+}
+
+.Edit-profile-btn:hover{
+background-color:skyblue;
+
+}
+.Tweet
+{
+background-color: white;
+    width: 20%;
+    height: 20%;
+
+    padding: 2rem 1rem; 
+    color:skyblue;
+  
+ 
+}
