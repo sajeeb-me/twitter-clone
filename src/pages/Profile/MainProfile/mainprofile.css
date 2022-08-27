@@ -1,45 +1,72 @@
+  .arrow-icon
+  {
+   margin:10px;
+
+  }
+ h4{
+  float:right;
+ display: inline;
+ margin-right:85%;
+ margin-top:-40px;
+ font-size: 19px;
+ margin-left: 50px;
+justify-content: space-between;
+ }
+ h3{
+  margin-left: 20px;
+ }
+ h5{
+  margin-left: 20px;
+  color: darkgrey;
+ }
   .mainprofile
   {
-    background-color:rgb(12, 61, 61);
-    min-height: 150%;
-    width: 100%;
+    background-color:rgb(207, 206, 206);
+    background-image: url("");
     margin-top: 0;
     border: 1 px solid white;
-
-
   }
 .head
 {
-  height:60%;
+  height:50%;
   
 }
 .profile-bio
 {
  
-    height: 130px;
+    height: 100px;
 }
 
 
 .avatar-img{
-  margin-top: 45px;
+  margin-top:30px; 
+}
+.avatar{
+ width:"20%";
+height: "20%";
+margin-left: 30px;
+border:4px solid white;
+
 }
 .Edit-profile-btn{
   
 transform: translateY(-50%);
 cursor: pointer;
 margin-left:80%;
-margin-top:2px;
+margin-top:1%;
+padding-top: 30px;
 background-color: white; 
 padding:7px;
 width:15%;
-border: 1px solid;
+border: 1px solid rgb(207, 206, 206);
 justify-content: center;
+border: 1px solid ;
 border-radius:2rem;
 
 }
 
 .Edit-profile-btn:hover{
-background-color:skyblue;
+background-color:rgb(207, 206, 206);
 
 }
 .Tweet
