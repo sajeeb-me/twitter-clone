@@ -3,7 +3,7 @@ import { Avatar } from "@mui/material";
 import './mainprofile.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Post from "./Post/Post"
-const MainProfile = ({ p, user }) => {
+const MainProfile = ({ user }) => {
   const result = user?.email?.split('@')[0];
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -16,43 +16,24 @@ const MainProfile = ({ p, user }) => {
 
   return (
     <diV>
-      <ArrowBackIcon />
-      <div>
-        <h4>{user.email}</h4>
-
-      </div>
-
-      <div className='mainprofile' style={{ heifht: "100%" }}>
-        <h1 style={{ color: "white" }}>Building of profile page Tweets</h1>
-
-        <div>
-
-          <div className='profile-bio'>
-
-            {
-              <div >
-                <div className='avatar-img'>
-                  <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" style={{ width: "20%", height: "20%" }} />
-
-                  <div className="">
-                    <h4>{user && user.displayName}</h4>
-                    <h5>@{result}</h5>
-                    <button className="Edit-profile-btn" >Edit profile</button>
-                  </div>
-                </div>
-
-                {
-                  posts.map(p => <Post p={p} />)
-                }
-
-
+      <ArrowBackIcon className='arrow-icon' />
+      <h4 className='heading-4'>{result}</h4>
+      <div className='mainprofile' >
+        <h1 className='heading-1' style={{ color: "white" }}>Building of profile page Tweets </h1>
+        <div className='profile-bio'>
+          {
+            <div >
+              <div className='avatar-img'>
+                <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" className="avatar" style={{ width: "20%", height: "20%" }} />
+                <h3 className='heading-3' style={{ fontSize: "22px" }}>{result}</h3>
+                <h5 className='heading-5' style={{ fontSize: "22px" }}>{user.email}</h5>
+                <button className="Edit-profile-btn" >Edit profile</button>
               </div>
-
-            }
-
-
-
-          </div>
+              {
+                posts.map(p => <Post p={p} />)
+              }
+            </div>
+          }
         </div>
       </div>
     </diV>
