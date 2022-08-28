@@ -83,7 +83,7 @@ export default function EditProfile({ user, loggedInUser }) {
       dob,
     }
     console.log(editedInfo);
-    fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+    fetch(`https://pacific-peak-30751.herokuapp.com/userUpdates/${user?.email}`, {
       method: "PATCH",
       headers: {
         'content-type': 'application/json'
