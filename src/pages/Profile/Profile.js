@@ -5,11 +5,10 @@ import MainProfile from './MainProfile/MainProfile'
 
 function Profile() {
 
-    const {  user } = useUserAuth();
+    const { user } = useUserAuth();
     return (
         <div className='profilePage'>
-            <MainProfile user={user}/>
-         
+            <MainProfile user={user} />
         </div>
     )
 }

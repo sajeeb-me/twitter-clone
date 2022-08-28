@@ -63,7 +63,8 @@ export default function EditProfile() {
   const [open, setOpen] = React.useState(false)
   return (
     <div >
-      <Button onClick={() => { setOpen(true); }}>Edit Profile</Button>
+      {/* <Button onClick={() => { setOpen(true); }}>Edit Profile</Button> */}
+      <button onClick={() => { setOpen(true) }} className="Edit-profile-btn" >Edit profile</button>
 
       <Modal
         open={open}

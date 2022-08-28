@@ -1,41 +1,80 @@
   .arrow-icon {
     margin: 10px;
+    cursor: pointer;
+  }
 
+  .arrow-icon:hover {
+    color: var(--twitter-color);
+  }
+
+  .coverImage {
+    height: 200px;
+    width: 600px;
+  }
+
+  .coverImageContainer {
+    position: relative;
+  }
+
+  .hoverCoverImage {
+    position: absolute;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 100%;
+    height: 98%;
+    opacity: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hoverCoverImage:hover {
+    opacity: 100%;
+  }
+
+  .photoIcon {
+    color: white;
+    font-size: 35px !important;
+    opacity: 40%;
+    cursor: pointer;
+  }
+
+  .photoIcon:hover {
+    opacity: 100%;
+  }
+
+  .userInfo {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .heading-4 {
-    float: right;
-    display: inline;
-    margin-right: 85%;
     margin-top: -40px;
     font-size: 19px;
     margin-left: 50px;
+    margin-bottom: 10px;
     justify-content: space-between;
   }
 
   .heading-3 {
     margin-left: 20px;
+    font-size: 24px;
   }
 
-  .heading-5 {
+  .usernameSection {
     margin-left: 20px;
     color: darkgrey;
   }
 
   .mainprofile {
     background-color: rgb(207, 206, 206);
-    background-image: url("");
     margin-top: 0;
     border: 1 px solid white;
   }
 
-  .head {
-    height: 50%;
-
-  }
-
   .profile-bio {
-
     height: 100px;
   }
 
@@ -49,38 +88,31 @@
     height: "20%";
     margin-left: 30px;
     border: 4px solid white;
-
+    margin-top: -100px;
   }
 
   .Edit-profile-btn {
-
-    transform: translateY(-50%);
-    cursor: pointer;
-    margin-left: 80%;
-    margin-top: 1%;
-    padding-top: 30px;
     background-color: white;
-    padding: 7px;
-    width: 15%;
-    border: 1px solid rgb(207, 206, 206);
-    justify-content: center;
+    padding: 10px;
     border: 1px solid;
     border-radius: 2rem;
-
+    margin-right: 20px;
   }
 
   .Edit-profile-btn:hover {
     background-color: rgb(207, 206, 206);
-
   }
 
   .Tweet {
     background-color: white;
     width: 20%;
     height: 20%;
-
     padding: 2rem 1rem;
     color: skyblue;
+  }
 
-
+  .tweetsText {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 5px;
   }
