@@ -20,6 +20,8 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import CustomeLink from "./CumtomeLink";
+import useLoggedInUser from "../../hooks/useLoggedInUser";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -27,6 +29,8 @@ import CustomeLink from "./CumtomeLink";
 function Sidebar({ handleLogout, user }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
+  const [loggedInUser] = useLoggedInUser();
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
@@ -68,9 +72,11 @@ function Sidebar({ handleLogout, user }) {
         Tweet
       </Button>
       <div className="Profile__info">
-        <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
+        <Avatar src={loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"} />
         <div className="user__info">
-          <h4>{user && user.displayName}</h4>
+          <h4>
+            {loggedInUser[0]?.name ? loggedInUser[0].name : user && user.displayName}
+          </h4>
           <h5>@{result}</h5>
         </div>
         <IconButton size="small"
@@ -79,11 +85,13 @@ function Sidebar({ handleLogout, user }) {
           aria-expanded={openMenu ? "true" : undefined}
           onClick={handleClick}><MoreHorizIcon /></IconButton>
         <Menu id="basic-menu" anchorEl={anchorEl} open={openMenu} onClick={handleClose} onClose={handleClose}>
-          <MenuItem className="Profile__info1">
-            <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
+          <MenuItem className="Profile__info1" onClick={() => navigate('/home/profile')}>
+            <Avatar src={loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"} />
             <div className="user__info subUser__info">
               <div>
-                <h4>{user && user.displayName}</h4>
+                <h4>
+                  {loggedInUser[0]?.name ? loggedInUser[0].name : user && user.displayName}
+                </h4>
                 <h5>@{result}</h5>
               </div>
               <ListItemIcon className="done__icon" color="blue"><DoneIcon /></ListItemIcon>
@@ -93,10 +101,7 @@ function Sidebar({ handleLogout, user }) {
           <MenuItem onClick={handleClose}>Add an existing account</MenuItem>
           <MenuItem onClick={handleLogout}>Log out @{result}</MenuItem>
         </Menu>
-
       </div>
-
-
     </div>
   );
 }

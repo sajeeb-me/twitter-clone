@@ -1,13 +1,14 @@
 import React from 'react'
 import '../pages.css'
-import EditProfile from './EditProfile/EditProfile'
+import { useUserAuth } from "../../context/UserAuthContext"
 import MainProfile from './MainProfile/MainProfile'
 
 function Profile() {
+
+    const { user } = useUserAuth();
     return (
         <div className='profilePage'>
-            <MainProfile />
-            <EditProfile />
+            <MainProfile user={user} />
         </div>
     )
 }
