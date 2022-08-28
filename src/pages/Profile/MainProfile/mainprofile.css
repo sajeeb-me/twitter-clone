@@ -142,3 +142,26 @@
     margin-left: 20px;
     margin-bottom: 5px;
   }
+
+  .infoContainer {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .locationAndLink {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  .subInfo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .link {
+    color: var(--twitter-color);
+    cursor: pointer;
+  }

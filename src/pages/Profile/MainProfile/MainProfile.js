@@ -3,6 +3,8 @@ import './mainprofile.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CenterFocusWeakIcon from '@mui/icons-material/CenterFocusWeak';
 import LockResetIcon from '@mui/icons-material/LockReset';
+import MyLocationIcon from '@mui/icons-material/MyLocation';
+import AddLinkIcon from '@mui/icons-material/AddLink';
 import Post from "./Post/Post"
 import { useNavigate } from 'react-router-dom';
 import EditProfile from '../EditProfile/EditProfile';
@@ -159,10 +161,19 @@ const MainProfile = ({ user }) => {
                 </div>
                 <div className='userInfo'>
                   <div>
-                    <h3 className='heading-3'>{user && user.displayName}</h3>
+                    <h3 className='heading-3'>
+                      {loggedInUser[0]?.name ? loggedInUser[0].name : user && user.displayName}
+                    </h3>
                     <p className='usernameSection'>@{username}</p>
                   </div>
                   <EditProfile user={user} loggedInUser={loggedInUser} />
+                </div>
+                <div className='infoContainer'>
+                  {loggedInUser[0]?.bio ? <p>{loggedInUser[0].bio}</p> : ''}
+                  <div className='locationAndLink'>
+                    {loggedInUser[0]?.location ? <p className='subInfo'><MyLocationIcon /> {loggedInUser[0].location}</p> : ''}
+                    {loggedInUser[0]?.website ? <p className='subInfo link'><AddLinkIcon /> {loggedInUser[0].website}</p> : ''}
+                  </div>
                 </div>
                 <h4 className='tweetsText'>Tweets</h4>
                 <hr />
