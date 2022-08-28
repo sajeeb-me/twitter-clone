@@ -36,11 +36,16 @@
     color: white;
     font-size: 35px !important;
     opacity: 40%;
+    margin-right: 20px;
     cursor: pointer;
   }
 
   .photoIcon:hover {
     opacity: 100%;
+  }
+
+  .photoIconDisabled {
+    cursor: not-allowed;
   }
 
   .userInfo {
@@ -78,17 +83,38 @@
     height: 100px;
   }
 
-
-  .avatar-img {
-    margin-top: 30px;
+  .avatarContainer {
+    margin-top: -50px;
+    margin-left: 20px;
+    border-radius: 100%;
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border: 4px solid white;
   }
 
   .avatar {
-    width: "20%";
-    height: "20%";
-    margin-left: 30px;
-    border: 4px solid white;
-    margin-top: -100px;
+    position: relative;
+    width: 100%;
+    height: 98%;
+    border-radius: 100%;
+  }
+
+  .hoverAvatarImage {
+    position: absolute;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 100%;
+    height: 98%;
+    border-radius: 100%;
+    opacity: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hoverAvatarImage:hover {
+    opacity: 100%;
   }
 
   .Edit-profile-btn {

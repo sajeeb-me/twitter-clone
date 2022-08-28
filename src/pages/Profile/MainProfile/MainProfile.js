@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar } from "@mui/material";
 import './mainprofile.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CenterFocusWeakIcon from '@mui/icons-material/CenterFocusWeak';
@@ -13,11 +12,9 @@ import useLoggedInUser from '../../../hooks/useLoggedInUser';
 
 const MainProfile = ({ user }) => {
   const navigate = useNavigate();
-  const [imageURL, setImageURL] = useState('');
+  // const [imageURL, setImageURL] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [loggedInUser] = useLoggedInUser();
-
-  console.log(loggedInUser[0]?.coverImage);
 
   const username = user?.email?.split('@')[0];
   const [posts, setPosts] = useState([]);
@@ -29,7 +26,7 @@ const MainProfile = ({ user }) => {
       })
   }, [user?.email])
 
-  const handleUploadImage = e => {
+  const handleUploadCoverImage = e => {
     setIsLoading(true);
     const image = e.target.files[0];
 
@@ -39,7 +36,7 @@ const MainProfile = ({ user }) => {
     axios.post("https://api.imgbb.com/1/upload?key=c1e87660595242c0175f82bb850d3e15", formData)
       .then(res => {
         const url = res.data.data.display_url;
-        setImageURL(url);
+        // setImageURL(url);
         // console.log(res.data.data.display_url);
         const userCoverImage = {
           email: user?.email,
@@ -54,6 +51,45 @@ const MainProfile = ({ user }) => {
               'content-type': 'application/json'
             },
             body: JSON.stringify(userCoverImage),
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log('done', data);
+            })
+        }
+
+      })
+      .catch((error) => {
+        console.log(error);
+        window.alert(error);
+        setIsLoading(false);
+      })
+  }
+
+  const handleUploadProfileImage = e => {
+    setIsLoading(true);
+    const image = e.target.files[0];
+
+    const formData = new FormData();
+    formData.set('image', image)
+
+    axios.post("https://api.imgbb.com/1/upload?key=c1e87660595242c0175f82bb850d3e15", formData)
+      .then(res => {
+        const url = res.data.data.display_url;
+        // setImageURL(url);
+        // console.log(res.data.data.display_url);
+        const userProfileImage = {
+          email: user?.email,
+          profileImage: url,
+        }
+        setIsLoading(false)
+        if (url) {
+          fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+            method: "PATCH",
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(userProfileImage),
           })
             .then(res => res.json())
             .then(data => {
@@ -85,7 +121,7 @@ const MainProfile = ({ user }) => {
                     <label htmlFor='image' className="imageIcon">
                       {
                         isLoading ?
-                          <LockResetIcon className='photoIcon' />
+                          <LockResetIcon className='photoIcon photoIconDisabled ' />
                           :
                           <CenterFocusWeakIcon className='photoIcon' />
                       }
@@ -94,14 +130,33 @@ const MainProfile = ({ user }) => {
                       type="file"
                       id='image'
                       className="imageInput"
-                      onChange={handleUploadImage}
+                      onChange={handleUploadCoverImage}
                     />
-                    {/* <Button className="tweetBox__tweetButton" type="submit">Tweet</Button> */}
                   </div>
                 </div>
               </div>
               <div className='avatar-img'>
-                <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" className="avatar" style={{ width: "20%", height: "20%" }} />
+                <div className='avatarContainer'>
+                  <img src={loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"} className="avatar" alt='' />
+                  <div className='hoverAvatarImage'>
+                    <div className="imageIcon_tweetButton">
+                      <label htmlFor='profileImage' className="imageIcon">
+                        {
+                          isLoading ?
+                            <LockResetIcon className='photoIcon photoIconDisabled ' />
+                            :
+                            <CenterFocusWeakIcon className='photoIcon' />
+                        }
+                      </label>
+                      <input
+                        type="file"
+                        id='profileImage'
+                        className="imageInput"
+                        onChange={handleUploadProfileImage}
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className='userInfo'>
                   <div>
                     <h3 className='heading-3'>{user && user.displayName}</h3>
