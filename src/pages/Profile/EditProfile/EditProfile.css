@@ -32,7 +32,11 @@
   background-color: black;
   padding: 5px 20px;
   border-radius: 20px;
+  border: none;
 
+}
+.header> .save-btn:hover{
+  background-color: #b4b7b9
 }
 
 .header__twittericon {
@@ -55,7 +59,6 @@
   height: 200px;
   width: 100%;
   margin-top: 5px;
-  ;
   background-color: #b4b7b9;
   margin-bottom: 5px;
 }
@@ -124,12 +127,12 @@
   justify-content: center;
 }
 
-.text>.e-button {
+/* .text>.e-button {
   margin: 10px;
   color: rgb(255, 255, 255);
   background-color: black;
   border-radius: 20px;
-}
+} */
 
 .last-section h2 {
   display: flex;
