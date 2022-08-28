@@ -4,6 +4,7 @@ import { Avatar, Button } from "@mui/material";
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import axios from "axios";
 import { useUserAuth } from "../../../context/UserAuthContext";
+import useLoggedInUser from "../../../hooks/useLoggedInUser";
 
 function TweetBox() {
     const [post, setPost] = useState('')
@@ -11,8 +12,12 @@ function TweetBox() {
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState('');
     const [username, setUsername] = useState(' ');
+    const [loggedInUser] = useLoggedInUser();
     const { user } = useUserAuth();
     const email = user?.email;
+
+
+    const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
 
     // console.log(user?.providerData[0]?.providerId);
 
@@ -52,11 +57,12 @@ function TweetBox() {
 
         if (name) {
             const userPost = {
+                profilePhoto: userProfilePic,
                 post: post,
                 photo: imageURL,
                 username: username,
                 name: name,
-                email:email,
+                email: email,
             }
             console.log(userPost);
             setPost('')
@@ -79,7 +85,7 @@ function TweetBox() {
     return <div className="tweetBox">
         <form onSubmit={handleTweet}>
             <div className="tweetBox__input">
-                <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
+                <Avatar src={loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"} />
                 <input
                     type="text"
                     placeholder="What's happening?"

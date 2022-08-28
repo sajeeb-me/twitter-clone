@@ -9,11 +9,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PublishIcon from "@mui/icons-material/Publish";
 
 function Post({ p }) {
-  const { name, username, photo, post } = p
+  const { name, username, photo, post, profilePhoto } = p
   return (
     <div className="post">
       <div className="post__avatar">
-        <Avatar src="https://i.ibb.co/0DR7Ndn/twitter-profile.jpg" />
+        <Avatar src={profilePhoto} />
       </div>
       <div className="post__body">
         <div className="post__header">
@@ -28,7 +28,7 @@ function Post({ p }) {
             <p>{post}</p>
           </div>
         </div>
-        <img src={photo} alt="" width='580' />
+        <img src={photo} alt="" width='500' />
         <div className="post__footer">
           <ChatBubbleOutlineIcon className="post__footer__icon" fontSize="small" />
           <RepeatIcon className="post__footer__icon" fontSize="small" />

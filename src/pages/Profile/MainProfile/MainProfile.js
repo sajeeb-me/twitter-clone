@@ -162,7 +162,7 @@ const MainProfile = ({ user }) => {
                     <h3 className='heading-3'>{user && user.displayName}</h3>
                     <p className='usernameSection'>@{username}</p>
                   </div>
-                  <EditProfile />
+                  <EditProfile user={user} loggedInUser={loggedInUser} />
                 </div>
                 <h4 className='tweetsText'>Tweets</h4>
                 <hr />
